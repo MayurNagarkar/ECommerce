@@ -1,6 +1,7 @@
 package com.amazon.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.amazon.model.Billing;
 import com.amazon.model.Order;
@@ -9,25 +10,38 @@ import com.amazon.model.ShoppingCart;
 
 public class ShoppingCartController {
 
-	private ShoppingCart cart;
+	private ShoppingCart cart = new ShoppingCart();
+	private int count = 400;
+	private List<Product> prodList = new ArrayList<Product>();
 
-	ShoppingCart addtoCart(Product p) {
-	
+	public ShoppingCart addtoCart(Product p) {
+
+		cart.setCartId(count + 1);
+		prodList.add(p);
+		cart.setProdList(prodList);
+		cart.setProdList(prodList);
+
 		return null;
 	}
 
-	ShoppingCart removeFromCart(Product p) {
-
-		return null;
-	}
-
-	ShoppingCart getcart(){
+	public ShoppingCart removeFromCart(Product p) {
+		if (cart.getProdList().contains(p)) {
+			cart.getProdList().remove(p);
+		}
 		
-		return null;
+		return cart;
 	}
 
-	Order buy(ShoppingCart sc,Billing bl){
+	public ShoppingCart getcart() {
+
+		return cart;
+	}
+
+	public Order buy(ShoppingCart sc, Billing bl) {
 		
-		return null;
-	} 
+		OrderController orderController = new OrderController();
+		Order order = orderController.createOrder(cart);
+		order.setCart(sc);
+		return order;
+	}
 }

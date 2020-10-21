@@ -12,6 +12,10 @@ public class ShoppingCart {
 		this.cartId = cartId;
 	}
 
+	public List<Product> getProdList() {
+		return prodList;
+	}
+
 	public void setProdList(List<Product> prodList) {
 		this.prodList = prodList;
 	}

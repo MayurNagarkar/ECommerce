@@ -29,8 +29,8 @@ public class Order {
 	}
 
 	public String showOrder() {
-		return "Order [orderId=" + orderId + ", custId=" + custId + ", shippingAddress=" + shippingAddress + ", cart="
-				+ cart + ", totalPrice=" + totalPrice + "]";
+		return "Order [orderId=" + orderId + ", custId=" + custId + ", shippingAddress=" + shippingAddress.showAddress() + ", cart="
+				+ cart.showShoppingCart() + ", totalPrice=" + totalPrice + "]";
 	}
 
 }

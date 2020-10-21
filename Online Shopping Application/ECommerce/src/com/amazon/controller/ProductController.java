@@ -6,26 +6,40 @@ import com.amazon.model.Product;
 
 public class ProductController {
 
+	private int count=101;
+	
 	private List<Product> products;
 	
-	Product createProduct() {
-		
-		
-		return null;
+	public Product createProduct() {
+		Product p = new Product();
+		p.setProdId(count+1);
+		p.setProdName("ABC"+count+1);
+		p.setProdQuantity(1);
+		p.setProdUnitPrice((float)10.5);
+		products.add(p);
+		return p;
 	}
 
-	Product updateProduct(Product p) {
-		
-		return null;
+	public Product updateProduct(Product p) {
+		if (products.contains(p)) {
+			products.add(products.indexOf(p), p);
+		}
+			
+		return p;
 	}
 
-	List<Product> listProducts(){
+	public List<Product> listProducts(){
 		
-		return null;
+		return products;
 	}
 
-	Product get(int id){
+	public Product get(int id){
 		
+		for (Product product : products) {
+			if (product.getProdId() == id) {
+				return product;
+			}
+		}
 		return null;
 	} 
 }

@@ -26,9 +26,13 @@ public class Customer {
 		this.cart = cart;
 	}
 
+	public ShoppingCart getCart() {
+		return cart;
+	}
+
 	public String showCustomer() {
-		return "Customer [custId=" + custId + ", custName=" + custName + ", custAddress=" + custAddress + ", cart="
-				+ cart + "]";
+		return "Customer [custId=" + custId + ", custName=" + custName + ", custAddress=" + custAddress.showAddress()
+				+ ", cart=" + cart.showShoppingCart() + "]";
 	}
 
 }

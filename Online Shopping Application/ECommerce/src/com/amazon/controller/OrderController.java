@@ -5,15 +5,24 @@ import com.amazon.model.ShoppingCart;
 
 public class OrderController {
 
-	private Order order;
-	
-	Order createOrder(ShoppingCart sc){
-		 
-		 return null;
-	 }
+	private Order order = new Order();
+	private int count = 500;
 
-	Order updateOrder(ShoppingCart sc) {
-		
-		return null;
+	public Order createOrder(ShoppingCart sc) {
+
+		order.setCart(sc);
+		return order;
+
 	}
+
+	public Order updateOrder(ShoppingCart sc) {
+
+		Order ordernew = order;
+		ordernew.setOrderId(count + 1);
+		ordernew.setCart(sc);
+		System.out.println("Your Order has been placed");
+		return ordernew;
+
+	}
+
 }
